@@ -1,0 +1,15 @@
+Album 
+IdAlbum 
+Nome 
+DataDeLancamento
+Localizao
+Minutos
+Visualizao
+IdArtista
+IdEstiloDeMusica 
+
+Usuarios 
+IdUsuario
+Email
+Senha
+Adm

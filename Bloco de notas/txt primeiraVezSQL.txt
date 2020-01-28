@@ -1,0 +1,14 @@
+--Criar O Banco de dados 
+CREATE DATABASE Biblioteca_tarde;
+
+--Usar a Biblioteca 
+USE Biblioteca_Tarde;
+
+CREATE TABLE Generos(
+	IdGenero INT PRIMARY KEY IDENTITY,
+	Nome     VARCHAR(200)
+	);
+
+CREATE TABLE Livros(
+	IdLivros INT PRIMARY KEY IDENTITY,
+	IDAutor  INT 
