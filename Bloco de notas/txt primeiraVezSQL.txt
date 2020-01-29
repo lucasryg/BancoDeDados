@@ -12,3 +12,8 @@ CREATE TABLE Generos(
 CREATE TABLE Livros(
 	IdLivros INT PRIMARY KEY IDENTITY,
 	IDAutor  INT 
+
+--UNIQUE
+ele nao vai repetir esse valor, ex:
+
+	Nome VARCHAR(250) NOT NULL UNIQUE

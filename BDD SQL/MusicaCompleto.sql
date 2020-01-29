@@ -18,7 +18,7 @@ CREATE TABLE Album (
 	Nome             VARCHAR(25) NOT NULL,
 	DataDeLancamento DATE NOT NULL,
 	Localizacao      VARCHAR(50) NOT NULL,
-	Minutos          TIME NOT NULL,
+	Minutos          BIGINT ,
 	Visualiza        BINARY NOT NULL,
 	IdArtista        INT FOREIGN KEY REFERENCES Artista (IdArtista),
 	IdEstiloMusical  INT FOREIGN KEY REFERENCES Estilos (IdEstiloMusical)
@@ -31,7 +31,14 @@ CREATE TABLE Usuarios(
 	Adm			   BINARY NOT NULL
 );
 
+--ALTERAÇÃO DE TABELA EXCLUIR COLUNA 
+ALTER TABLE Usuarios
+DROP COLUMN Adm;
+
+DROP TABLE Usuarios;
+
 SELECT * FROM Estilos;
 SELECT * FROM Artista;
 SELECT * FROM Album;
 SELECT * FROM Usuarios;
+

@@ -1,0 +1,96 @@
+Excluir IdEstiloAlbuns do Album 
+
+
+--Criei o banco de dados 
+CREATE DATABASE optusTarde;
+
+USE optusTarde;
+
+CREATE TABLE Estilos( 
+	IdEstiloMusical INT PRIMARY KEY IDENTITY,
+	Nome            VARCHAR(255)
+);
+
+CREATE TABLE Artista(
+	IdArtista       INT PRIMARY KEY IDENTITY,
+	Nome            VARCHAR(25) NOT NULL
+);
+
+CREATE TABLE Album (
+	IdAlbum          INT PRIMARY KEY IDENTITY,
+	Nome             VARCHAR(25) NOT NULL,
+	DataDeLancamento DATE NOT NULL,
+	Localizacao      VARCHAR(50) NOT NULL,
+	Minutos          BIGINT ,
+	Visualiza        VARCHAR(3) NOT NULL ,
+	IdArtista        INT FOREIGN KEY REFERENCES Artista (IdArtista),
+	IdEstiloMusical  INT FOREIGN KEY REFERENCES Estilos (IdEstiloMusical)
+);
+
+ALTER TABLE Album
+DROP IdEstiloMusical;
+
+
+CREATE TABLE TipoUsuario(
+	IdTipoUsuario INT PRIMARY KEY IDENTITY,
+	Titulo		  VARCHAR (100)
+);
+
+
+CREATE TABLE Usuarios(
+	IdUsuario      INT PRIMARY KEY IDENTITY,
+	IdTipoUsuario  INT FOREIGN KEY REFERENCES TipoUsuario (IdTipoUsuario),
+	Nome          VARCHAR(100) NOT NULL,
+);
+
+
+--ALTERAÇÃO DE TABELA EXCLUIR COLUNA 
+ALTER TABLE Usuarios
+DROP COLUMN Adm;
+
+
+
+DROP TABLE Estilos;
+
+SELECT * FROM Estilos;
+SELECT * FROM Artista;
+SELECT * FROM Album;
+SELECT * FROM TipoUsuario;
+SELECT * FROM Usuarios;
+
+--DML LINGUAGEM DE MANIPULAÇÃO DE DADOS
+
+--COMANDO DE INSERIR DADOS 
+INSERT INTO Estilos( Nome )
+VALUES ('Trap'),('Indie'),('Rap'),('Funk');
+
+
+INSERT INTO Artista(Nome)
+VALUES('Derek'),('Ghostmane'),('Clairo');
+
+INSERT INTO Album(Nome,DataDeLancamento,Localizacao,Minutos,Visualiza,IdArtista,IdEstiloMusical)
+VAlUES ('NOISE','20/11/6666','hell',200,'yes',1,2);
+
+INSERT INTO TipoUsuario (Titulo)
+VALUES ('Lucas'),('Joao'),('Bruno'),('Cesar'),('Diogo');
+
+
+
+--UPDATE alterar dados 
+UPDATE Artista
+SET Nome ='Anitta'
+WHERE IdArtista = 1;
+
+--DELETE apagar dados
+DELETE FROM Artista
+WHERE IdArtista = 3;
+
+DELETE FROM Estilos
+WHERE IdEstiloMusical = 4;
+
+--Limpar todos os dados da tabela
+TRUNCATE TABLE Estilos;
+
+--Excluir IdEstiloAlbum 
+
+
