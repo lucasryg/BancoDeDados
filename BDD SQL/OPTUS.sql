@@ -43,6 +43,8 @@ CREATE TABLE Usuarios(
 ALTER TABLE Usuarios
 DROP COLUMN Adm;
 
+
+--DQL LINGUAGEM DE CONSULTA DE DADOS
 SELECT * FROM Estilos;
 SELECT * FROM Artista;
 SELECT * FROM Album;
@@ -95,6 +97,10 @@ UPDATE Artista
 SET Nome ='paipai'
 WHERE IdArtista = 4;
 
+UPDATE TipoUsuario
+SET Titulo = 'Admin'
+WHERE IdTipoUsuario = 1;
+
 --DELETE apagar dados
 DELETE FROM Artista
 WHERE IdArtista = 3;
@@ -105,4 +111,44 @@ WHERE IdEstiloMusical = 4;
 --Limpar todos os dados da tabela
 TRUNCATE TABLE Estilos;
 
+--DQL LINGUAGEM DE CONSULTA DE DADOS 
+
+SELECT * FROM Artista;
+SELECT Nome FROM Artista;
+SELECT Nome, Localizacao FROM Album
+
+--Operadores < > 
+SELECT * FROM Album WHERE IdAlbum = 5;
+
+SELECT * FROM Album WHERE IdAlbum < 3;
+
+--Or (ou)
+SELECT Nome, Minutos FROM Album
+
+WHERE (DataDeLancamento IS NULL) or (Localizacao IS NULL);
+
+--LIKE Comparacao de texto 
+SELECT IdAlbum, Nome FROM Album
+WHERE Nome LIKE '%TIKa'; --No começo
+
+SELECT IdAlbum, Nome FROM Album
+WHERE Nome LIKE 'TIKa%'; --No final
+
+SELECT IdAlbum, Nome FROM Album
+WHERE Nome LIKE '%TIKa%'; -- No meio da frase
+
+--ORDENACAO
+
+select Nome from Album
+order by Nome;
+
+select IdAlbum, Nome, Minutos from Album
+order by Minutos desc ; --desc = Maior para o menor
+
+select IdAlbum, Nome, DataDeLancamento from Album
+order by DataDeLancamento asc ; --asc = Menor para o maior
+
+--count 
+
+select count(IdAlbum) from Album;
 

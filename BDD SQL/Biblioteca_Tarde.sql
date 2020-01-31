@@ -1,36 +1,84 @@
---Usar a Biblioteca 
-USE Biblioteca_Tarde;
+-- CRIAR BANCO DE DADOS
+CREATE DATABASE Biblioteca_Tarde; 
 
-CREATE TABLE Generos(
-	IdGenero INT PRIMARY KEY IDENTITY,
-	Nome     VARCHAR(200)
-	);
+-- APONTANDO PARA O BANCO QUE QUER USAR
+USE Biblioteca_Tarde; 
 
-CREATE TABLE Livros(
-	IdLivros  INT PRIMARY KEY IDENTITY,
-	Titulo    VARCHAR(255),
-	IdAutor   INT FOREIGN KEY REFERENCES Autores (IdAutor),
-	IdGeneros INT FOREIGN KEY REFERENCES Generos (IdGenero)
-	);
+-- CRIAR TABELAS
+CREATE TABLE Autores (
+	IdAutor		INT PRIMARY KEY IDENTITY,
+	NomeAutor	VARCHAR(200) NOT NULL
+);
 
-SELECT * FROM Generos;	 
-SELECT * FROM Autores;	 
-SELECT * FROM Livros;	 
+CREATE TABLE Generos (
+	IdGenero	INT PRIMARY KEY IDENTITY,
+	Nome		VARCHAR(200) NOT NULL
+);
 
---Alterar adicinar uma nova coluna
-ALTER TABLE Generos
-ADD Descricao VARCHAR(255);
+CREATE TABLE Livros (
+	IdLivro		INT PRIMARY KEY IDENTITY,
+	Titulo		VARCHAR(250),
+	IdAutor		INT FOREIGN KEY REFERENCES Autores (IdAutor),
+	IdGenero	INT FOREIGN KEY REFERENCES Generos (IdGenero)
+);
 
---Alterar tipo de dado 
-ALTER TABLE Generos
-ALTER COLUMN Descricao CHAR(100);
+SELECT * FROM Generos;
+SELECT * FROM Autores;
+SELECT * FROM Livros;
 
---Alterar excluir coluna
+-- ALTERAR ADICIONAR UMA NOVA COLUNA 
 ALTER TABLE Generos 
-DROP COLUMN Descricao;
+ADD Descricao VARCHAR(250);
 
---Para excluir uma tabela
-DROP TABLE Generos
+-- ALTERAR TIPO DE DADO 
+ALTER TABLE Generos
+ALTER COLUMN Descricao CHAR(100);	
 
---Excluir banco de dados
-DROP DATABASE Biblioteca_Tarde;
+-- EXCLUIR 
+DROP TABLE Generos;	
+
+-- EXERCICIOS PARA PRATICAS ADC E APG
+
+INSERT INTO Generos(Nome)
+VALUES('Romance'), ('Ficçao Cientifica'), ('Comédia'), ('Tecnologia'), ('Drama'); 
+
+INSERT INTO Autores(NomeAutor)
+VALUES('Clarice Lispector'), ('Monteiro Lobato'), ('Shakespeare'), ('Eçá de Queiroz'), ('Augusto Cury'); 
+
+INSERT INTO Livros(Titulo, IdAutor, IdGenero)
+VALUES('O Lustre', 1, 2);
+
+INSERT INTO Livros(Titulo, IdAutor, IdGenero)
+VALUES('O Futebol', 3, 3);
+
+INSERT INTO Livros(Titulo, IdAutor, IdGenero)
+VALUES('O Computador', 5, 2);
+
+INSERT INTO Livros(Titulo, IdAutor, IdGenero)
+VALUES('Venha Cá', 4, 2);
+
+UPDATE Generos
+SET Nome = 'Esporte'
+WHERE IdGenero = 3
+
+
+DELETE FROM Autores
+WHERE IdAutor = 2
+
+SELECT * FROM Livros;
+select * from Autores; 
+
+select Nome from Generos;
+
+select Titulo from Livros;
+
+select Titulo,IdAutor from Livros;
+
+select IdGenero, Titulo from Livros;
+
+select Titulo,IdAutor,IdGenero from Livros;
+
+
+
+
+
