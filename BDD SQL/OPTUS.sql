@@ -152,3 +152,40 @@ order by DataDeLancamento asc ; --asc = Menor para o maior
 
 select count(IdAlbum) from Album;
 
+--Selecioniar os albuns do mesmo artista
+
+select * from Album where IdArtista = 2;
+
+--Usando inner join(junçao de duas ou mais tabelas
+
+select Artista.Nome, Album.Nome from Artista 
+inner join Album on Artista.IdArtista = Album.IdArtista
+where Artista.IdArtista = 2;
+
+--inner join 
+select * from Artista
+inner join Album on Artista.IdArtista = Album.IdArtista
+where Artista.IdArtista = 2;
+
+--Selecionar albums e artistas e ordernas 
+--Por data de lacamento
+--Mais antigo para o mais recente 
+
+select * from Album order by DataDeLancamento asc;
+
+--Com join
+select Artista.Nome as NomeArtista, Album.Nome as NomeAlbum -- Atributos 
+from Artista
+inner join Album on Artista.IdArtista = Album.IdArtista
+order by DataDeLancamento asc;
+
+--Selecione artistas do mesmo estilo musical 
+select Artista.Nome, Estilos.Nome from Artista
+inner join Album on Artista.IdArtista = Album.IdArtista
+inner join Estilos on Album.IdEstiloMusical = Estilos.IdEstiloMusical
+where Estilos.IdEstiloMusical = 2;
+
+
+
+
+

@@ -102,9 +102,14 @@ where DataDeLancamento = '23/04/2020';
 select DataDeLancamento from Album
 where DataDeLancamento = '12/05/2018';
 
+--Jeito melhor de fazer 
+select * from Album order by DataDeLancamento asc;
+
+
 --3)
-select IdArtista,IdEstiloMusical from Album
-where IdEstiloMusical = 1;
+select Artista.Nome, Album.Nome from Artista
+inner join Album on Artista.IdArtista = Album.IdArtista
+where Album.IdArtista = 2;
 
 select IdArtista,IdEstiloMusical from Album
 where IdEstiloMusical = 2;
