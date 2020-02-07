@@ -85,7 +85,7 @@ WHERE IdTipoUsuario = 2
 --Deletei os nomes TAVA ERRADO
 DELETE FROM TipoUsuario 
 WHERE IdTipoUsuario = 5;
-
+	
 
 INSERT INTO Usuarios(IdTipoUsuario, Nome)
 VALUES (1,'Lucas'), (2,'Joao'),(1,'Bruno'),(2,'Cesar'), (1,'Diogo');
