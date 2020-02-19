@@ -151,7 +151,6 @@ order by DataDeLancamento asc ; --asc = Menor para o maior
 --count 
 
 select count(IdAlbum) from Album;
-
 --Selecioniar os albuns do mesmo artista
 
 select * from Album where IdArtista = 2;
