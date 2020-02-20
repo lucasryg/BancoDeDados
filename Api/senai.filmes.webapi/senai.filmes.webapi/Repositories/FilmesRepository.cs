@@ -29,6 +29,7 @@ namespace senai.Filmes.WebApi.Repositories
 
                 using (SqlCommand cmd = new SqlCommand(queryListar, con))
                 {
+
                     rdr = cmd.ExecuteReader();
 
                     while(rdr.Read())
@@ -39,8 +40,9 @@ namespace senai.Filmes.WebApi.Repositories
                             IdFilme = Convert.ToInt32(rdr[0]),
 
                             Titulo = rdr["Titulo"].ToString(),
-                            /// O erro está aqui, passar o valor do idGenero, e nao 0s
-                            IdGenero = Convert.ToInt32(rdr[filme.IdGenero])
+
+                            /// O erro está aqui, passar o valor do idGenero, e nao 0
+                            IdGenero = Convert.ToInt32(rdr[2]),
                         };
 
                         filmeDomains.Add(filme);
@@ -71,11 +73,39 @@ namespace senai.Filmes.WebApi.Repositories
 
    
                 }
-
-
-
             }
           
+        }
+
+        public FilmeDomain BuscarPorId(int Id)
+        {
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryBuscarPorId = "select IdFilme, Titulo from Filmes where IdFilme = @ID";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(queryBuscarPorId, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", Id);
+
+                    rdr = cmd.ExecuteReader();
+
+                    if(rdr.Read())
+                    {
+                        FilmeDomain filme = new FilmeDomain()
+                        {
+                            IdFilme = Convert.ToInt32(rdr[0]),
+
+                            Titulo = rdr["Titulo"].ToString()
+                        };
+                        return filme;
+                    }
+                    return null;
+                }
+            }
         }
     }
 }

@@ -28,3 +28,7 @@ SELECT * FROM Generos;
 SELECT * FROM Filmes;
 
 SELECT IdGenero, Nome from Generos;
+
+select IdFilme, Titulo from Filmes where IdFilme = 4;
+
+select IdFilme, Titulo, IdGenero from Filmes;

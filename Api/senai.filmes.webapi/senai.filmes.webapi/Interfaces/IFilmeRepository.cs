@@ -21,5 +21,14 @@ namespace senai.Filmes.WebApi.Interfaces
         /// <param tabela="filmeDomain"></param>
         void Cadastrar(FilmeDomain filmeDomain);
 
+        /// <summary>
+        /// Busca o nome do filme pelo Id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>O id com o nome do filme</returns>
+        FilmeDomain BuscarPorId(int Id);
+
+
+
     }
 }
