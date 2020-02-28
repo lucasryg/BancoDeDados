@@ -14,6 +14,16 @@ CREATE TABLE Filmes(
 	,IdGenero	INT FOREIGN KEY REFERENCES Generos (IdGenero)
 );	
 
+create table Usuarios(
+	IdUsuarios int primary key identity,
+	Email varchar(255),
+	Senha varchar(225),
+	Permissao varchar(255)
+);
+
+
+insert into Usuari
+
 
 INSERT INTO Generos	(Nome)
 VALUES				('Ação')
@@ -23,9 +33,13 @@ INSERT INTO Filmes	(Titulo, IdGenero)
 VALUES				('A vida é bela', 2)
 					,('Rambo', 1);
 
+insert into Usuarios (Email, Senha, Permissao)
+values('lucas@lucas.com','123123','Comum'),
+	  ('admin@admin','123321','Adminstrador')
+
 					
 SELECT * FROM Generos;
-SELECT * FROM Filmes;
+SELECT * FROM Usuarios;
 
 SELECT IdGenero, Nome from Generos;
 
