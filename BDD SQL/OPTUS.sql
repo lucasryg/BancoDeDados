@@ -135,7 +135,7 @@ SELECT IdAlbum, Nome FROM Album
 WHERE Nome LIKE 'TIKa%'; --No final
 
 SELECT IdAlbum, Nome FROM Album
-WHERE Nome LIKE '%TIKa%'; -- No meio da frase
+WHERE Nome LIKE '%TIKa%'; -- No meio da frase	
 
 --ORDENACAO
 
