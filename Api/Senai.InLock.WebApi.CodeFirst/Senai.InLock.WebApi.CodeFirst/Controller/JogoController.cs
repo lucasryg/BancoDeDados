@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Senai.InLock.WebApi.DataBaseFirst.Domains;
-using Senai.InLock.WebApi.DataBaseFirst.Interfaces;
-using Senai.InLock.WebApi.DataBaseFirst.Repository;
+using Senai.InLock.WebApi.CodeFirst.Domains;
+using Senai.InLock.WebApi.CodeFirst.Interfaces;
+using Senai.InLock.WebApi.CodeFirst.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Senai.InLock.WebApi.DataBaseFirst.Controller
+namespace Senai.InLock.WebApi.CodeFirst.Controller
 {
     [Produces("application/json")]
     [Route("api/[controller]")]

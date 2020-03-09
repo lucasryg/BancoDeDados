@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Senai.InLock.WebApi.DataBaseFirst.Domains;
-using Senai.InLock.WebApi.DataBaseFirst.Interfaces;
+using Senai.InLock.WebApi.CodeFirst.Contexts;
+using Senai.InLock.WebApi.CodeFirst.Domains;
+using Senai.InLock.WebApi.CodeFirst.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Senai.InLock.WebApi.DataBaseFirst.Repository
+namespace Senai.InLock.WebApi.CodeFirst.Repository
 {
     public class JogoRepository : IJogoRepository
     {
@@ -53,7 +54,7 @@ namespace Senai.InLock.WebApi.DataBaseFirst.Repository
 
         public List<Jogo> ListarComEstudios()
         {
-            return ctx.Jogo.Include(j => j.IdEstudioNavigation).ToList();
+            return ctx.Jogo.Include(j => j.estudio).ToList();
         }
     }
 }

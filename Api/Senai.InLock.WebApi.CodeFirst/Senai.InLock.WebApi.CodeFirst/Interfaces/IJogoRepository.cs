@@ -1,10 +1,10 @@
-﻿using Senai.InLock.WebApi.DataBaseFirst.Domains;
+﻿using Senai.InLock.WebApi.CodeFirst.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Senai.InLock.WebApi.DataBaseFirst.Interfaces
+namespace Senai.InLock.WebApi.CodeFirst.Interfaces
 {
     interface IJogoRepository
     {/// <summary>
